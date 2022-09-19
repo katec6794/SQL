@@ -1,0 +1,95 @@
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+first_name TEXT,
+last_name TEXT,
+age INTEGER,
+married TEXT,
+net_worth INTEGER);
+
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("George", "Clooney", 61, "yes", "10000");
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Hugh", "Jackman", 53, "yes", 20000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Florence", "Pugh", 26, "no", 5000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Tilda", "Swinton", 61, "no", 13000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Daniel", "Radcliffe", 33, "no", 45000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Danny", "DeVito", 77, "yes", 15000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Vin", "Diesel", 55, "no", 7000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Scarlett", "Johansson", 37, "no", 50000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Mads", "Mikkelsen", 56, "yes", 9000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Margo", "Robbie", 32, "yes", 13000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Hugh", "Grant", 60, "yes", 14000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Jackie", "Chan", 68, "yes", 20000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Leonardo", "DiCaprio", 47, "no",30000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Jodie", "Foster", 59, "yes", 19000);
+INSERT INTO movie_stars (first_name, last_name, age, married, net_worth) 
+    VALUES ("Jamie Lee", "Curtis", 63, "yes", 25000);
+
+
+CREATE TABLE favorite_animals (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+star_name INTEGER,
+name TEXT); 
+
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (1, "Dog");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (2, "Cat");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (3, "Dog");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (4, "Cat");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (5, "Cat");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (6, "Dog");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (7, "Dog");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (8, "Dog");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (9, "Cat");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (10, "Dog");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (11, "Dog");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (12, "Cat");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (13, "Dog");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (14, "Cat");
+INSERT INTO favorite_animals (star_name, name)
+    VALUES (15, "Dog");
+
+SELECT first_name, last_name FROM movie_stars
+JOIN favorite_animals
+ON movie_stars.id = star_name
+WHERE name = "Dog";
+
+SELECT movie_stars.first_name, movie_stars.last_name, married.married
+FROM movie_stars
+JOIN movie_stars married
+ON movie_stars.id = married.id; 
+
+SELECT movie_stars.first_name, movie_stars.last_name, value.net_worth AS value
+FROM movie_stars
+JOIN movie_stars value
+ON movie_stars.id = value.id
+ORDER BY value DESC;
+
+SELECT * FROM movie_stars
+JOIN favorite_animals
+ON movie_stars.id = star_name
+WHERE name = "Cat" 
+AND net_worth > 10000; 
